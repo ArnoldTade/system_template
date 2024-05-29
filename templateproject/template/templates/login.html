@@ -1,0 +1,38 @@
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<title>{% block title %}{{login_label}} {% endblock %}</title>
+
+{% block content %}
+{% if messages %}
+    <div class="messages z-3 position-absolute">
+        {% for message in messages %}
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+{% endif %}
+<section class="section-login">
+    <div class="container container-login">
+        <div class="row">
+            <div class="col-sm-8">
+            </div>
+            <div class="col-sm-4">
+                <p class="text-center fs-4">Login</p><hr>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ loginform.as_p }}
+                    <div class="d-grid gap-2 ">
+                        <button type="submit" class="btn btn-login btn-sm">Sign in</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+{% include "_footer.html" %}
