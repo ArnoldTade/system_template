@@ -10,6 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link rel="stylesheet" href="{% static 'bootstrap-icons/font/bootstrap-icons.css' %}">
+        <script src="{% static 'js/chart.js' %}"></script>
 
         {% bootstrap_css %}
         {% bootstrap_javascript %}
@@ -17,60 +18,90 @@
 
     </head>
     <body >
-        <button class="btn btn-secondary" id="btn-nav" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="bi bi-list"></i></button>
-
-        <div class="offcanvas offcanvas-start show" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Navbar</h5>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house-door-fill"></i> Home</a>
+      <!-- TOP NAV -->
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-secondary" id="btn-nav" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="bi bi-list"></i></button>
+          </div>
+          <div class="col">
+            <ul class="nav justify-content-end">
+              <li class="nav-item">
+                <button class="btn nav-link active" id="btn-chat" aria-current="page" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-chat-right-fill"></i></button>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="bi bi-bell-fill"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- NAV -->
+      <div class="offcanvas offcanvas-start show" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+          <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Navbar</h5>
+          </div>
+          <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house-door-fill"></i> Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#"><i class="bi bi-columns"></i> Dashboard</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-columns"></i> Dashboard</a>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"> <i class="bi bi-person-fill"></i> Profile</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-table"></i> Tables</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li>
+                        <hr class="dropdown-divider">
                       </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#"> <i class="bi bi-person-fill"></i> Profile</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#"><i class="bi bi-table"></i> Tables</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                      </a>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                          <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                      </ul>
-                    </li>
-                    <hr>
-                    <li class="nav-item position-absolute bottom-0">
-                        <a class="nav-link" href="{% url "logout" %}"><i class="bi bi-arrow-bar-left"></i> Logout</a>
-                    </li>
-                  </ul>
-            </div>
-        </div>
-      
-        {% block content %}
-        
-        {% if messages %}
-        <div class="messages">
-          {% for message in messages %}
-            <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
-              {{ message }}
-            </div>
-          {% endfor %}
-        </div>
-        {% endif %}
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                  <hr>
+                  <li class="nav-item position-absolute bottom-0">
+                      <a class="nav-link" href="{% url "logout" %}"><i class="bi bi-arrow-bar-left"></i> Logout</a>
+                  </li>
+                </ul>
+          </div>
+      </div>
 
-        {% endblock %}
+      <!-- MESSAGE OFFCANVAS -->
+      <div class="offcanvas offcanvas-end" data-bs-scroll="true" id="offcanvasRight" tabindex="-2" data-bs-backdrop="false" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasRightLabel">Chat</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          ...
+        </div>
+      </div>
+      
+      
+ 
+      {% block content %}
+      
+      {% if messages %}
+      <div class="messages">
+        {% for message in messages %}
+          <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% endblock %}
 
        
       
