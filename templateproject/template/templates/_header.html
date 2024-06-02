@@ -27,7 +27,10 @@
           <div class="col">
             <ul class="nav justify-content-end">
               <li class="nav-item">
-                <button class="btn nav-link active" id="btn-chat" aria-current="page" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-chat-right-fill"></i></button>
+                <button class="btn nav-link active" id="btn-chat" aria-current="page" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                  <i class="bi bi-chat-right-fill">
+                  </i>
+                </button>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#"><i class="bi bi-bell-fill"></i></a>
@@ -44,29 +47,13 @@
           <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house-door-fill"></i> Home</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="#"><i class="bi bi-columns"></i> Dashboard</a>
+                      <a class="nav-link active" href="{% url "home" %}"><i class="bi bi-columns"></i> Dashboard</a>
                     </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#"> <i class="bi bi-person-fill"></i> Profile</a>
+                    <a class="nav-link" href="{% url "profile" %}"> <i class="bi bi-person-fill"></i> Profile</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#"><i class="bi bi-table"></i> Tables</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li>
-                        <hr class="dropdown-divider">
-                      </li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
                   </li>
                   <hr>
                   <li class="nav-item position-absolute bottom-0">
@@ -83,12 +70,34 @@
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          ...
+          <div class="container">
+            <div class"row">
+              <div class="col-3 p-3 mb-2">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Username</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for users in chat_users %}
+                    <tr>
+                      <td> {{ users.username}}</td>
+                    </tr>
+                  {% endfor %}
+
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-3 p-3 mb-2">
+                <input type="text-field">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       
-      
- 
+
       {% block content %}
       
       {% if messages %}

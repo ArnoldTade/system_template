@@ -98,3 +98,8 @@ hr {
 .col-chart {
     height: 100%;
 }
+
+.col-2 {
+    background-color: #728b85;
+    width: 100% !important;
+}

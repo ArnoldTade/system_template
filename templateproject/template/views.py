@@ -4,6 +4,7 @@ from django.contrib import messages
 from .forms import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -37,10 +38,19 @@ def user_login(request):
 
 @login_required
 def home(request):
-    return render(request, "home.html")
+    chat_users = User.objects.all()
+    context = {
+        "chat_users": chat_users,
+    }
+    return render(request, "home.html", context)
 
 
 @login_required
 def user_logout(request):
     logout(request)
     return redirect("login")
+
+
+@login_required
+def profile(request):
+    return render(request, "profile.html")
