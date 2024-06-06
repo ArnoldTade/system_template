@@ -1,0 +1,105 @@
+:root {
+    --bg-color: #dde9e6;
+    --bg-faint-color: #b0c4bf;
+    --theme-color: #465a55;
+    --text-color: #ffffff;
+    --text-hover: #5cc5a9;
+    --box-shadow-style: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding-left: 200px;
+    transition: padding-left 0.3s;
+    background-color: var(--bg-color) !important;
+}
+
+.no-padding {
+    padding-left: 0px;
+}
+
+.offcanvas-start {
+    width: 200px !important;
+    background-color: var(--theme-color) !important;
+}
+
+.offcanvas-end {
+    background-color: var(--theme-color) !important;
+
+}
+
+hr {
+    border-top: 1px solid #fff !important;
+}
+
+
+.offcanvas {
+    z-index: 1045 !important;
+}
+
+.offcanvas-body .nav-item:last-child {
+    margin-bottom: 10px;
+}
+
+.offcanvas-body a,
+.offcanvas-title {
+    color: var(--text-color);
+}
+
+.offcanvas-body a:hover,
+.offcanvas-title:hover {
+    color: var(--text-hover);
+}
+
+.col-sm {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    margin: 5px;
+    color: var(--theme-color);
+    box-shadow: var(--box-shadow-style);
+    background-color: #ffffff;
+}
+
+.bi-chat-right-fill,
+.bi-bell-fill {
+    color: var(--theme-color);
+}
+
+.bi-chat-right-fill:hover,
+.bi-bell-fill:hover {
+    color: var(--bg-faint-color);
+}
+
+.box-summary {
+    color: var(--text-color);
+}
+
+.box-summary:nth-child(1) {
+    background-color: #897a95;
+}
+
+.box-summary:nth-child(2) {
+    background-color: #af8b8b;
+}
+
+.box-summary:nth-child(3) {
+    background-color: #748b97;
+}
+
+.box-summary:nth-child(4) {
+    background-color: #728b85;
+}
+
+.col-chart {
+    height: 100%;
+}
+
+.col-2 {
+    background-color: #728b85;
+    width: 100% !important;
+}
