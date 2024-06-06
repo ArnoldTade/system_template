@@ -9,6 +9,8 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 def user_login(request):
+    if request.user.is_authenticated:
+        return redirect("home")
     login_label = "Login"
     if request.method == "POST":
         userform = LoginForm(request.POST)
