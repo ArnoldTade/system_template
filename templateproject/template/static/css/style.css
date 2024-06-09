@@ -63,6 +63,13 @@ hr {
     color: var(--theme-color);
     box-shadow: var(--box-shadow-style);
     background-color: #ffffff;
+
+
+}
+
+.col-datatable {
+    height: 100% !important;
+
 }
 
 .bi-chat-right-fill,
@@ -102,4 +109,19 @@ hr {
 .col-2 {
     background-color: #728b85;
     width: 100% !important;
+}
+
+.page-item.active .page-link {
+    background-color: var(--theme-color) !important;
+    border-color: var(--theme-color) !important;
+}
+
+.buttons-excel {
+    background-color: #34af63 !important;
+    border-color: #61cf8b !important;
+}
+
+.buttons-pdf {
+    background-color: #d15f68 !important;
+    border-color: #af5a61 !important;
 }
