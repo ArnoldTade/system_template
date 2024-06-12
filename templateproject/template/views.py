@@ -56,3 +56,17 @@ def user_logout(request):
 @login_required
 def profile(request):
     return render(request, "profile.html")
+
+
+@login_required
+def tables(request):
+    return render(request, "tables.html")
+
+
+@login_required
+def chat(request):
+    users = User.objects.all()
+    context = {
+        "users": users,
+    }
+    return render(request, "chat.html", context)

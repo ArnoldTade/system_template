@@ -20,6 +20,7 @@ body {
 
 .no-padding {
     padding-left: 0px;
+    margin: 0;
 }
 
 .offcanvas-start {
@@ -32,14 +33,15 @@ body {
 
 }
 
+.nav-text {
+    display: inline;
+}
+
 hr {
     border-top: 1px solid #fff !important;
 }
 
 
-.offcanvas {
-    z-index: 1045 !important;
-}
 
 .offcanvas-body .nav-item:last-child {
     margin-bottom: 10px;
@@ -55,6 +57,7 @@ hr {
     color: var(--text-hover);
 }
 
+
 .col-sm {
     width: 100px;
     height: 100px;
@@ -63,8 +66,14 @@ hr {
     color: var(--theme-color);
     box-shadow: var(--box-shadow-style);
     background-color: #ffffff;
+}
 
-
+.col-sm-2,
+.col-sm-9 {
+    box-shadow: var(--box-shadow-style);
+    background-color: #ffffff;
+    padding: 10px;
+    margin: 5px;
 }
 
 .col-datatable {
@@ -116,6 +125,12 @@ hr {
     border-color: var(--theme-color) !important;
 }
 
+.buttons-pdf,
+.buttons-excel,
+.buttons-copy {
+    font-size: 11px !important;
+}
+
 .buttons-excel {
     background-color: #34af63 !important;
     border-color: #61cf8b !important;
@@ -124,4 +139,34 @@ hr {
 .buttons-pdf {
     background-color: #d15f68 !important;
     border-color: #af5a61 !important;
+}
+
+#dt-search-0 {
+    margin: 10px !important;
+    border-radius: 0.5rem;
+}
+
+.container-chat {
+    hr {
+        border-top: 1px solid var(--theme-color) !important;
+    }
+
+    .chat-user {
+        cursor: pointer;
+
+        img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            padding: 0;
+        }
+    }
+
+    .chat-user:hover {
+        background-color: var(--bg-faint-color);
+        color: #fff;
+        border-radius: 0.5rem;
+    }
+
+
 }

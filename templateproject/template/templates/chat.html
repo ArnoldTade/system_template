@@ -1,0 +1,36 @@
+{% include "_header.html" %}
+{% block content %}
+{% load static %}
+
+
+<section>
+    <div class="container container-chat">
+        <div class="row">
+            <div class="col-sm-2">
+                <p class="text-start fs-6">Chat</p><hr>
+                <table class="table">
+                    <tbody>
+                    {% for user in users %}
+                      <tr>
+                        <td class="chat-user">
+                            <img src="{% static "img/placeholder.jpg" %}" />
+                            {{user.username}}
+                        </td>
+                      </tr>
+                    {% endfor %}
+
+                    </tbody>
+                  </table>
+            </div>
+            <div class="col-sm-9">
+                <p class="text-start fs-6">Conversation</p><hr>
+            </div>
+        </div>
+       
+    </div>
+
+    <aside></aside>
+</section>
+
+{% endblock %}
+{% include "_footer.html" %}

@@ -19,27 +19,29 @@
 
     </head>
     <body >
-      <!-- TOP NAV -->
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <button class="btn btn-secondary" id="btn-nav" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="bi bi-list"></i></button>
-          </div>
-          <div class="col">
-            <ul class="nav justify-content-end">
-              <li class="nav-item">
-                <button class="btn nav-link active" id="btn-chat" aria-current="page" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                  <i class="bi bi-chat-right-fill">
-                  </i>
-                </button>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><i class="bi bi-bell-fill"></i></a>
-              </li>
-            </ul>
+      <!-- TOP NAV 
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-secondary" id="btn-nav" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i id="btn-icon"  class="bi bi-arrow-bar-left"></i></button>
+            </div>
+            <div class="col">
+              <ul class="nav justify-content-end">
+                <li class="nav-item">
+                  <button class="btn nav-link active" id="btn-chat" aria-current="page" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <i class="bi bi-chat-right-fill">
+                    </i>
+                  </button>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#"><i class="bi bi-bell-fill"></i></a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
+      -->
+      <br>
       <!-- NAV -->
       <div class="offcanvas offcanvas-start show" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
           <div class="offcanvas-header">
@@ -48,17 +50,20 @@
           <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                   <li class="nav-item">
-                      <a class="nav-link active" href="{% url "home" %}"><i class="bi bi-columns"></i> Dashboard</a>
+                      <a class="nav-link active" href="{% url "home" %}"><i class="bi bi-columns"></i></i><span class="nav-text"> Dashboard</span></a>
                     </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url "profile" %}"> <i class="bi bi-person-fill"></i> Profile</a>
+                    <a class="nav-link" href="{% url "profile" %}"> <i class="bi bi-person-fill"></i></i><span class="nav-text"> Profile</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="bi bi-table"></i> Tables</a>
+                    <a class="nav-link" href="{% url 'tables' %}"><i class="bi bi-table"></i></i><span class="nav-text"> Tables</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'chat' %}"><i class="bi bi-wechat"></i></i><span class="nav-text"> Message</span></a>
                   </li>
                   <hr>
                   <li class="nav-item position-absolute bottom-0">
-                      <a class="nav-link" href="{% url "logout" %}"><i class="bi bi-arrow-bar-left"></i> Logout</a>
+                      <a class="nav-link" href="{% url "logout" %}"><i class="bi bi-arrow-bar-left"></i></i><span class="nav-text"> Logout</span></a>
                   </li>
                 </ul>
           </div>
@@ -98,7 +103,6 @@
         </div>
       </div>
       
-
       {% block content %}
       
       {% if messages %}

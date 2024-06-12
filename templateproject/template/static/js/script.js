@@ -1,3 +1,26 @@
+
+/* ICON TOGGLE NAV */
+document.getElementById('btn-nav').addEventListener('click', function () {
+    var icon = document.getElementById('btn-icon');
+    var sidebarText = document.querySelectorAll('.nav-text');
+
+    if (icon.classList.contains('bi-arrow-bar-left')) {
+        icon.classList.remove('bi-arrow-bar-left');
+        icon.classList.add('bi-arrow-bar-right');
+        sidebarText.forEach(function (text) {
+            text.style.display = 'none';
+        });
+    } else {
+        icon.classList.remove('bi-arrow-bar-right');
+        icon.classList.add('bi-arrow-bar-left');
+        sidebarText.forEach(function (text) {
+            text.style.display = 'inline';
+        });
+    }
+});
+
+
+/* BODY */
 document.getElementById('btn-nav').addEventListener('click', function () {
     document.body.classList.toggle('no-padding');
 });
@@ -29,5 +52,4 @@ let chart = new Chart(ctx, {
         }
     }
 });
-
 
